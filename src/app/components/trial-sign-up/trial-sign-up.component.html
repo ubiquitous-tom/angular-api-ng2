@@ -1,0 +1,276 @@
+<app-navbar></app-navbar>
+
+<!--Main Content -->
+<div id="page-wrap">
+  <div class="container">
+    <h4>Ready to start your free trial?</h4>
+    <h5>Watch the best British mystery, drama, and comedy all in one place, always commercial free. </h5>
+  </div>
+
+  <app-progress-bar></app-progress-bar>
+
+
+  <div class="container">
+    <div class="row">
+      <div id="form">
+        <!--Form -->
+        <div ng-controller="TrialSignupController" class="form-wrap" ng-cloak>
+          <div class="alert alert-error" ng-show="trialForm.$invalid && submitted">Oops! Looks like you may have entered some information incorrectly. Please check the highlighted fields. </div>
+          <div id="signin-form-insert"></div>
+          <form ng-model="trialForm" name="trialForm" novalidate="novalidate" class="form-processing" ng-init="checkCode();">
+            <div id="appliedCode" style="display:none">
+              <h3 class="formhead">Code to be Applied</h3>
+              <div class="row-fluid">
+                <div class="control-group">
+                  <label for="code" class="control-label">The following will be applied to your account.</label>
+                  <div class="controls">
+                    <span id="codeName"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12">
+              <h3 class="formhead">Billing Information
+                <span class="NameHighlights" onMouseOver="javascript:this.className='NameHighlightsHover'" onMouseOut="javascript:this.className='NameHighlights'">
+                  <!-- <img> -->
+                        <span class="fa icon-question-sign hidden-xs" style="color: #2b2b2b; font-size: 1.1em;margin-bottom: -8px; padding:0 0 0 2px;"></span>
+                  <!-- </img> -->
+                <div>
+                  <p style="font-size:16px;color:#e5b612;padding:8px 6px 5px 12px;margin-top:5px;">
+                    <b> Billing Information</b>
+                  </p>
+                  <p style="font-size:12.5px;padding:0px 12px 5px 12px; ">
+                    <b>Will I see a charge on my credit card?</b>
+                  </p>
+                  <p style="font-size:12.5px;padding:0px 12px 5px 10px; ">You may see a pending authorization on your credit card, however, you will not be charged until your 7 day free trial ends. If you cancel before the 7 days are up then you will not be charged at all.</p>
+                  <a href="https://acorn.tv/browse" class="hoverlink">View All Episodes</a>
+                </div>
+                </span>
+                <div class="help-form hidden-xs">* Indicates Required Fields</div>
+              </h3>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div ng-class="{error: trialForm.firstname.$invalid && submitted}" class="control-group">
+                <label for="firstname" class="control-label">First Name *</label>
+                <div class="controls">
+                  <input ng-model="firstname" name="firstname" id="firstname" class="input-block-level domain" type="text" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div ng-class="{error: trialForm.lastname.$invalid && submitted}" class="control-group">
+                <label for="lastname" class="control-label">Last Name * </label>
+                <div class="controls">
+                  <input ng-model="lastname" name="lastname" id="lastname" class="input-block-level" type="text" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6  col-xs-12">
+              <div ng-class="{error: trialForm.billingaddress1.$invalid && submitted}" class="control-group">
+                <label for="billingaddress1" class="control-label">Address * </label>
+                <div class="controls">
+                  <input ng-model="billingaddress1" class="input-block-level" name="billingaddress1" id="billingaddress1" maxlength="30" type="text" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div ng-class="{error: trialForm.billingaddress2.$invalid && submitted}" class="control-group">
+                <label for="billingaddress2" class="control-label">Address 2 </label>
+                <div class="controls">
+                  <input ng-model="billingaddress2" class="input-block-level" name="billingaddress2" id="billingaddress2" maxlength="30" type="text">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div ng-class="{error: trialForm.billingcity.$invalid && submitted}" class="control-group">
+                <label for="billingcity" class="control-label">City * </label>
+                <div class="controls">
+                  <input ng-model="billingcity" class="input-block-level" name="billingcity" id="billingcity" maxlength="20" type="text" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-fluid">
+              <div class="col-md-3 col-sm-3 col-xs-12">
+                <div ng-class="{error: trialForm.billingstate.$invalid && submitted}" class="control-group">
+                  <label for="billingstate" class="control-label">State/Province * </label>
+                  <div class="controls">
+                    <select ng-model="billingstate" class="col-md-12 col-xs-12" name="billingstate" id="billingstate" required>
+                            <option selected="selected" value="">- State -</option>
+                          </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-3 col-xs-12 postalDiv">
+                <div ng-class="{error: trialForm.billingzip.$invalid && submitted}" class="control-group">
+                  <label for="billingzip" class="control-label">Zip/Postal Code *</label>
+                  <div class="controls">
+                    <input ng-model="billingzip" class="input-block-level" name="billingzip" id="billingzip" maxlength="10" type="text" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <h3 class="formhead" id="creditCard" style="margin-top:25px;">Credit Card Information </h3>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div ng-class="{error: trialForm.nameoncard.$invalid && submitted}" class="control-group" id="creditCardName">
+                <label for="nameoncard" class="control-label">Name on Card *
+                      </label>
+                <div class="controls">
+                  <input ng-model="nameoncard" class="input-block-level" name="nameoncard" id="nameoncard" maxlength="30" type="text" ng-required="!hasCode">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div ng-class="{error: trialForm.ccnumber.$invalid && submitted}" class="control-group" id="creditCardNumber">
+                <label for="ccnumber" class="control-label">Credit Card Number *
+                        <span>
+                          <img class="hidden-xs" src="img/creditcard.png" style="float:right;width:125px;margin-bottom:-5px;" />
+                        </span>
+                      </label>
+                <div class="controls">
+                  <input ng-model="ccnumber" class="input-block-level" name="ccnumber" id="ccnumber" type="text" ng-required="!hasCode">
+                </div>
+              </div>
+            </div>
+
+            <div class="row-fluid" id="creditCardExp">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div ng-class="{error: trialForm.verficationcode.$invalid && submitted}" class="control-group" id="">
+                  <label for="verficationcode" class="control-label">Card Verification Number* </label>
+                  <div class="controls">
+                    <input ng-model="verficationcode" class="input-block-level" name="verficationcode" id="verficationcode" type="text" ng-required="!hasCode">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label for="ccexpmonth" class="control-label">Card Expiration * </label>
+              </div>
+
+              <div class="col-md-3 col-sm-3 col-xs-12">
+                <div ng-class="{error: trialForm.ccexpmonth.$invalid && submitted}" class="control-group">
+                  <div class="controls">
+                    <select ng-model="ccexpmonth" class="col-md-12 col-sm-12 col-xs-12" id="ccexpmonth" name="ccexpmonth" ng-required="!hasCode">
+                            <option selected="selected" value="">- Month -</option>
+                            <option value="01">01 - January</option>
+                            <option value="02">02 - February</option>
+                            <option value="03">03 - March</option>
+                            <option value="04">04 - April</option>
+                            <option value="05">05 - May</option>
+                            <option value="06">06 - June</option>
+                            <option value="07">07 - July</option>
+                            <option value="08">08 - August</option>
+                            <option value="09">09 - September</option>
+                            <option value="10">10 - October</option>
+                            <option value="11">11 - November</option>
+                            <option value="12">12 - December</option>
+                          </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-3 col-xs-12">
+                <div ng-class="{error: trialForm.ccexpyear.$invalid && submitted}" class="control-group" id="creditCardExp">
+                  <div class="controls">
+                    <select ng-model="ccexpyear" class="col-md-12 col-sm-12 col-xs-12" id="ccexpyear" name="ccexpyear" ng-required="!hasCode">
+                            <option selected="selected" value="">- Year -</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                          </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="control-group tos">
+                <div class="controls">
+                  <label class="checkbox" for="agree">
+                          <input ng-model="agree" id="agree" name="agree" type="checkbox"> I agree to the
+                          <a class="open-dialog fancybox.iframe" target="_blank" href="https://api.rlje.net/acorntv-help/acorntv-terms-of-use.html"
+                            style="color:#333;" required>Terms of Service</a>
+                        </label>
+                  <span ng-show="trialForm.agree.$invalid && submitted" class="help-inline" for="agree">Please Accept the Terms of Service</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 30px;">
+              <div class="control-group">
+                <div class="controls">
+                  <button class="btn btn-medium btn-primary btn-block btn-jumbo" ng-click="validateTrialSignUp(); submitted= true;">
+                          <span class="fa fa-users" style="font-size:22px;padding: 0px 5px 0px 0px;margin-left: -10px;"></span> Sign Up </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div style="text-align:center; width: 20%; margin: 0 auto; clear:both;">
+            <!-- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT -->
+            <table width=125 border=0 cellspacing=0 cellpadding=0 title="CLICK TO VERIFY: This site uses a GlobalSign SSL Certificate to secure your personal information.">
+              <tr>
+                <td>
+                  <span id="ss_img_wrapper_gmogs_image_100-40_en_black">
+                          <a href="https://www.globalsign.com/" target=_blank title="GlobalSign Site Seal" rel="nofollow">
+                            <img alt="SSL" border=0 id="ss_img" src="//seal.globalsign.com/SiteSeal/images/gs_noscript_100-40_en.gif">
+                          </a>
+                        </span>
+                  <script type="text/javascript" src="//seal.globalsign.com/SiteSeal/gmogs_image_100-40_en_black.js"></script>
+                </td>
+              </tr>
+            </table>
+            <!-- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT -->
+          </div>
+
+          <p class="legal trialContent">
+            Your Acorn TV membership, which starts with a free 7 days, begins when you click Sign Up. To avoid being charged, simply cancel anytime during your first 7 days. To cancel, visit My Acorn TV, select "Manage Account," then choose "Cancel". By clicking
+            Sign Up, you authorize us to continue your monthly Acorn TV membership ($4.99/month) automatically, charged monthly to the payment method provided, until you cancel.
+          </p>
+
+          <p class="legal codeContent hide">
+            Your Acorn TV membership will begin when you click "Sign Up." Once your membership begins you can also take advantage of the free standard shipping offer from our catalog of DVDs &amp; gifts.
+          </p>
+
+
+          <br>
+          <br>
+        </div>
+        <!--Form  ENDS-->
+
+        <app-enable-cookies-modal></app-enable-cookies-modal>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

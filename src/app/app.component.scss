@@ -1,0 +1,112 @@
+/* Icons and Buttons */
+
+.buttoncolor {
+    background: #279da8;
+    width: 315px;
+    height: 59px;
+}
+
+.buttontext {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 300;
+    text-align: left;
+    padding: 21px 0px 0px 65px;
+    margin-top: 0px;
+    font-family: oxygen;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+.fa {
+    line-height: 35px;
+    display: inline-block;
+    color: #fff;
+    font-size: 1.22em;
+}
+
+.fa:hover {}
+
+.fa-lg {
+    font-size: 1.22em;
+}
+
+.fa-2x {
+    font-size: 1.6em;
+}
+
+.fa-3x {
+    font-size: 1.75em;
+}
+
+.fa-4x {
+    font-size: 3.6em;
+}
+
+.fa-list-ul:before {
+    background: none repeat scroll 0 0 #333;
+    content: "normal";
+    float: left;
+    position: relative;
+    width: 50px;
+    height: 40px;
+    padding: 1px;
+}
+
+.fa-user-plus:before {
+    background: none;
+    float: left;
+    position: relative;
+    width: 50px;
+    height: 40px;
+    padding: 13px 35px;
+}
+
+.fa-play:before {
+    background: none;
+    content: "normal";
+    float: left;
+    position: relative;
+    width: 30px;
+    height: 40px;
+    padding: 0px 18px;
+}
+
+.ssba img {
+    width: 32px;
+    padding: 2px;
+    border: 0;
+    box-shadow: none !important;
+    display: inline;
+    vertical-align: middle;
+}
+
+.btn-info {
+    background-color: transparent;
+    &:hover {
+        background-color: transparent;
+    }
+    &:active {
+        background-color: transparent;
+    }
+    &:focus {
+        background-color: transparent;
+    }
+}
+
+.btn-confirmation {
+    margin-bottom: 0px;
+}
+
+@media (min-width: 768px) {
+
+}

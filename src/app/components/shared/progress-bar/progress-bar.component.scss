@@ -1,0 +1,55 @@
+/* PROGRESS BAR */
+
+.progress-steps {
+    margin-bottom: 20px;
+    margin: 12px auto 10px;
+    text-align: center;
+    max-width: 650px;
+    transition: 0.2s all;
+    transform: skew(-15deg);
+    -webkit-transform: skew(-15deg);
+    -moz-transform: skew(-15deg);
+    ul {
+        background: #ccc none repeat scroll 0 0;
+        border: medium none;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        li.active {
+            background: rgba(129, 12, 12, .9);
+            border-radius: 0;
+            a {
+                color: #fff;
+            }
+        }
+        li {
+            display: block;
+            float: left;
+            list-style-type: none;
+            text-align: center;
+            width: 33.333%;
+            border-right: 2px solid #fff;
+            background: #ddd;
+            a {
+                color: #222;
+                display: block;
+                padding: 6px;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: .15em;
+                font-size: 10.5px;
+                transform: skew(15deg);
+                -webkit-transform: skew(15deg);
+                -moz-transform: skew(15deg);
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    /* PROGRESS BAR */
+    .progress-steps ul li a {
+        font-size: 11.5px;
+        padding: 9px;
+    }
+}

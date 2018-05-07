@@ -1,0 +1,23 @@
+<!--Navbar -->
+{{showLink('/')}}
+<div class="navbar navbar-fixed-top" role="navigation">
+  <div class="container">
+    <ul class="navbar-right-ul">
+      <li class="navbar-right visible-md visible-lg">
+
+          <a *ngIf="showLink('/')" class="log-in" href="signin">LOG IN</a>
+
+          <a *ngIf="showLink('/signin')" class="free-month" href="createaccount">START FREE TRIAL</a>
+
+      </li>
+    </ul>
+    <div class="navbar-header">
+      <a class="AcornAppLink" data-qs="/" href="#">
+        <img src="//api.rlje.net/acorn/artwork/size/atvlogo?t=Icons" class="atv-logo" />
+      </a>
+      <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle">
+      </button>
+    </div>
+  </div>
+</div>
+<!--Navbar ENDS -->
