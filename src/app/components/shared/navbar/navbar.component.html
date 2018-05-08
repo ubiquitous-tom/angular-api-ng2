@@ -1,13 +1,12 @@
 <!--Navbar -->
-{{showLink('/')}}
 <div class="navbar navbar-fixed-top" role="navigation">
   <div class="container">
     <ul class="navbar-right-ul">
       <li class="navbar-right visible-md visible-lg">
 
-          <a *ngIf="showLink('/')" class="log-in" href="signin">LOG IN</a>
+          <a *ngIf="displayLink('/')" class="log-in" href="signin">LOG IN</a>
 
-          <a *ngIf="showLink('/signin')" class="free-month" href="createaccount">START FREE TRIAL</a>
+          <a *ngIf="displayLink('/signin')" class="free-month" href="createaccount">START FREE TRIAL</a>
 
       </li>
     </ul>

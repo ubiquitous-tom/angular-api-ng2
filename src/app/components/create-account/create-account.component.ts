@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
@@ -10,6 +12,7 @@ export class CreateAccountComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log($);
   }
 
 }

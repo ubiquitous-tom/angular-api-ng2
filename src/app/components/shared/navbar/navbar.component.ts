@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-navbar',
@@ -10,12 +12,16 @@ export class NavbarComponent implements OnInit {
 
   currentUrl: string;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private aRouter: ActivatedRoute,
+    private location: Location
+  ) {
     this.router = router;
   }
 
   ngOnInit() {
-    console.log(this.router.url, this.router);
+    console.log(this.router.url, this.router, this.aRouter);
     this.currentUrl = this.router.url;
   }
 
@@ -23,8 +29,8 @@ export class NavbarComponent implements OnInit {
     return this.currentUrl.includes('signin');
   }
 
-  showLink(link: string) {
-    return this.currentUrl === link;
+  displayLink(link: string) {
+    return this.location.isCurrentPathEqualTo(link); //this.currentUrl === link;
   }
 
 }

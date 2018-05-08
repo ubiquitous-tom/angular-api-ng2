@@ -2,7 +2,7 @@
 
 <div id="page-wrap">
   <div class="container">
-    <h4 style="color:#810c0c">Welcome to Acorn TV</h4>
+    <h4>Welcome to Acorn TV</h4>
     <h5>Please use your current Acorn TV e-mail and password.</h5>
 
     <div class="container">
@@ -12,7 +12,7 @@
 
             <!-- <div id="outageAlert" style="display:none" class="alert alert-error">10/1/14: Our account management pages are experiencing a temporary outage. Current members should be able to view programs; however, it is not possible at this time to make any account changes or to start a new account. We expect the issue to be resolved today. Thank you for your patience in the meantime.</div> -->
 
-            <form novalidate="novalidate" class="form-signin form-processing" method="post">
+            <form novalidate class="form-signin form-processing" [formGroup]="signUpForm" (ngSubmit)="onFormSubmit()">
               <div id="infoUpdatePassword" style="display: none;">
                 <div class="alert alert-info">
                   <p>
@@ -22,11 +22,13 @@
               </div>
               <h3 class="formhead">Sign In</h3>
 
-              <div class="control-group">
+              <div class="control-group" ngClass="{'error': !signUpForm.Username.valid}">
                 <label for="Username" class="control-label">E-Mail</label>
-                <div class="controls">
-                  <input id="Username" name="Username" class="input-block-level required email" placeholder="" type="text">
+                <div class="form-controls">
+                  <input id="Username" formControlName="Username" class="input-block-level" 
+                    placeholder="" type="email">
                 </div>
+                <!-- <span for="Username" class="help-inline">This field is required. </span> -->
               </div>
 
               <div class="control-group">
@@ -34,8 +36,10 @@
                   <span>(case-sensitive)</span>
                 </label>
                 <div class="controls">
-                  <input id="Password" name="Password" class="input-block-level required" placeholder="" type="password">
+                  <input id="Password" formControlName="Password" class="input-block-level" 
+                    placeholder="" type="password">
                 </div>
+                <!-- <span for="Password" class="help-inline">This field is required. </span> -->
               </div>
 
               <br>
@@ -43,7 +47,8 @@
 
               <div class="control-group">
                 <div class="controls">
-                  <button class="btn btn-medium btn-primary btn-block btn-jumbo" type="submit" style="margin-top:-10px;"> Sign In </button>
+                  <button class="btn btn-medium btn-primary btn-block btn-jumbo"
+                    [disabled]="!signUpForm.valid"> Sign In </button>
                 </div>
               </div>
               <div class="forgot-password">

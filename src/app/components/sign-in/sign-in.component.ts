@@ -1,5 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+// import { NgForm } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { HttpClient, HttpParams } from '@angular/common/http';
+
+import {
+  Observable,
+  Subject,
+  asapScheduler,
+  pipe,
+  of,
+  from,
+  interval,
+  merge,
+  fromEvent
+} from 'rxjs';
+import { map, filter, scan } from 'rxjs/operators';
+
+import * as $ from 'jquery';
+import { Options } from 'selenium-webdriver';
+
+interface Post {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+}
 
 @Component({
   selector: 'app-sign-in',
@@ -7,10 +33,99 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
+  private static readonly errorMessages = {
+    'required': () => 'This field is required',
+    'email': () => 'This must be a valid email',
+    'pattern': (params) => 'The required pattern is: ' + params.requiredPattern
+  };
 
-  constructor(private router: Router) { }
+  // @Input() Username: string;
+  // @Input() Password: string;
+
+  signUpForm: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private http: HttpClient
+  ) {
+    this.createForm();
+  }
 
   ngOnInit() {
+    // https://stackoverflow.com/questions/46922181/how-to-use-fancybox-with-webpack
+    // window.jQuery = $;  <-- This is what do the magic!!
+    // const colors = ['green', 'blue', 'black', 'white'];
+    // $.each(colors, function(ind, color) {
+    //   console.log(ind, color);
+    // });
+
+    // Observable.of([1, 2, 3]).subscribe(x => console.log(x));
+    // Observable.from([1, 2, 3]).subscribe(x => console.log(x));
+    // Observable.of(1, 2, 3).subscribe(x => console.log(x));
+    // Observable.from(1, 2, 3).subscribe(x => console.log(x));
+  }
+
+  createForm() {
+    // Another way using Validators.compose()
+    // this.signUpForm = this.fb.group({
+    //   Username: ['', Validators.compose([Validators.required, Validators.email])],
+    //   Password: ['', Validators.required]
+    // });
+    this.signUpForm = this.fb.group({
+      Username: this.fb.control('test@test.com', [
+        Validators.required,
+        Validators.email,
+        Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+      ]),
+      Password: this.fb.control('test', [Validators.required])
+    });
+  }
+
+  onFormSubmit() {
+    console.log(this.signUpForm);
+    const username = this.signUpForm.controls['Username'].value;
+    const password = this.signUpForm.controls['Password'].value;
+    const signInParams = {
+      username: username,
+      password: password
+    };
+    console.log(username, password);
+
+    const signInData = this.getSignInJSONData(signInParams);
+    console.log(signInData);
+
+    // this.http.get('https://jsonplaceholder.typicode.com/posts')
+    //   .subscribe(posts => {
+    //     posts.forEach(element => {
+    //       console.log(element);
+    //     });
+    //   });
+
+    const postId = 2;
+    this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts/' + postId)
+      .subscribe(post => {
+        console.log(post);
+      });
+
+    // onFormSubmit(f: NgForm)
+    // console.log(onFormSubmit()'NgForm', f);
+    // console.log('form values', f.value);
+    // console.log('form valid', f.valid);
+    // // console.log('username', f.username);
+    // // console.log('password', f.password);
+    // console.log('controls Username', f.controls['Username'].value);
+    // console.log('controls Password', f.controls['Password'].value);
+    // console.log('value Username', f.value.Username);
+    // console.log('value Password', f.value.Password);
+    // if (!f.value.Username) {
+    //   console.log('no Username');
+    //   f.controls['Username'].setErrors({'incorrect': true});
+    // }
+    // if (!f.value.Password) {
+    //   console.log('no Password');
+    //   f.controls['Password'].setErrors({'incorrect': true});
+    // }
   }
 
   getSignUpSplitScenario() {
@@ -83,14 +198,14 @@ export class SignInComponent implements OnInit {
     return scenario;
   }
 
-  getSignInJSONData() {
+  getSignInJSONData(params) {
     return {
       'App': {
         'AppVersion': 'Sign-Up-Website'
       },
       'Credentials': {
-        // 'Username': $('#Username').val(),
-        // 'Password': $('#Password').val()
+        'Username': params.username,
+        'Password': params.password
       },
       'Request': {
         'SplitScenario': this.getSignUpSplitScenario(),
@@ -99,7 +214,21 @@ export class SignInComponent implements OnInit {
     };
   }
 
-  onSubmit() {
+  doSignIn() {
+    const header  = new Headers();
+    header.set('Content-Type', 'application/json; charset=utf-8');
+
+    // const params = new HttpParams();
+    // params.set('widthCredentials', 'true');
+    // params.set('crossDomain', 'true');
+    const params = {
+      withCredentials: true,
+      crossDomain: true,
+    };
+    this.http.post('/initializeapp', this.getSignInJSONData, params);
+  }
+
+  stuff() {
     // $('.form-signin').validate({
     //   submitHandler: function (form, e) {
 
@@ -162,7 +291,19 @@ export class SignInComponent implements OnInit {
           //         window.location.replace(cancelURL());
           //         break;
           //       default:
-          //         $('.form-processing').html('<div class="alert alert-error">There is a problem with your account. You can preview Acorn TV content <a href="' + acornTVURL() + '"><strong>here</strong></a>. If you need further assistance please <a href="' + contactUsURL() + '"><strong>contact us</strong></a>.</div>');
+          //         $('.form-processing')
+                        // .html('
+                        //   <div class="alert alert-error">There is a problem with your account.
+                        //    You can preview Acorn TV content
+                        //      <a href="' + acornTVURL() + '">
+                        //       <strong>here</strong>
+                        //     </a>.
+                        //      If you need further assistance please
+                        //      <a href="' + contactUsURL() + '">
+                        //       <strong>contact us</strong>
+                        //     </a>.
+                        //   </div>
+                        // ');
           //     }
 
           //   },
