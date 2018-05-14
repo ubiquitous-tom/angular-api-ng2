@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrialSignUpComponent implements OnInit {
 
+  step: number;
+
   constructor() { }
 
   ngOnInit() {
+    this.step = 2;
   }
 
 }

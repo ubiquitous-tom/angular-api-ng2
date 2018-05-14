@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
@@ -16,6 +16,11 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HeroComponent } from './components/shared/hero/hero.component';
 import { EnableCookiesModalComponent } from './components/shared/enable-cookies-modal/enable-cookies-modal.component';
 import { ProgressBarComponent } from './components/shared/progress-bar/progress-bar.component';
+import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
+import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { CancelComponent } from './components/cancel/cancel.component';
+import { FormProcessingComponent } from './components/shared/form-processing/form-processing/form-processing.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,11 @@ import { ProgressBarComponent } from './components/shared/progress-bar/progress-
     HeroComponent,
     IndexComponent,
     EnableCookiesModalComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    PageNotFoundComponent,
+    ForgetPasswordComponent,
+    CancelComponent,
+    FormProcessingComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,9 @@ import { ProgressBarComponent } from './components/shared/progress-bar/progress-
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

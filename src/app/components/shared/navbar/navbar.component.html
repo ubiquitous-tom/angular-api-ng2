@@ -4,14 +4,14 @@
     <ul class="navbar-right-ul">
       <li class="navbar-right visible-md visible-lg">
 
-          <a *ngIf="displayLink('/')" class="log-in" href="signin">LOG IN</a>
+          <a *ngIf="displayLink('/')" class="log-in" routerLink="/signin">LOG IN</a>
 
-          <a *ngIf="displayLink('/signin')" class="free-month" href="createaccount">START FREE TRIAL</a>
+          <a *ngIf="displayLink('/signin')" class="free-month" routerLink="/createaccount">START FREE TRIAL</a>
 
       </li>
     </ul>
     <div class="navbar-header">
-      <a class="AcornAppLink" data-qs="/" href="#">
+      <a class="AcornAppLink" data-qs="/" routerLink="/">
         <img src="//api.rlje.net/acorn/artwork/size/atvlogo?t=Icons" class="atv-logo" />
       </a>
       <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle">

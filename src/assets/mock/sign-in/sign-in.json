@@ -1,0 +1,498 @@
+{
+    "Streaming": {
+        "Exceeded": false,
+        "Count": 0,
+        "Limit": 15
+    },
+    "Actions": [
+        {
+            "Type": "SubscriptionNotification",
+            "ClickAction": "CreateTrial",
+            "Priority": "Normal",
+            "Exclusive": "false",
+            "Image": "trial_ad",
+            "callToAction": "Sign Up"
+        },
+        {
+            "Type": "PromotionNotifyAction",
+            "ClickAction": "",
+            "Priority": "Normal",
+            "Exclusive": "false",
+            "Image": "A-La-Carte-Options-750",
+            "callToAction": ""
+        },
+        {
+            "Type": "PromotionNotifyAction",
+            "ClickAction": "",
+            "Priority": "Normal",
+            "Exclusive": "false",
+            "Image": "RaveReviews750",
+            "callToAction": ""
+        },
+        {
+            "Type": "PromotionNotifyAction",
+            "ClickAction": "",
+            "Priority": "Normal",
+            "Exclusive": "false",
+            "Image": "Devices750",
+            "callToAction": ""
+        },
+        {
+            "Type": "PromotionNotifyAction",
+            "ClickAction": "",
+            "Priority": "Normal",
+            "Exclusive": "false",
+            "Image": "freeshipping_ad",
+            "callToAction": ""
+        }
+    ],
+    "RecommendedAction": {
+        "Type": "TrialSignup"
+    },
+    "Membership": {
+        "Status": "TRIAL_AVAILABLE"
+    },
+    "Preferences": {
+        "franchises": [
+            {
+                "image": "eastwest_avatar",
+                "image_h": "eastwest_avatar",
+                "seasons": [
+                    {
+                        "image": "eastwest_avatar",
+                        "name": "Series 3",
+                        "id": "EASTWEST03",
+                        "episodes": [
+                            {
+                                "image": "eastwest_sr03_ep01_splash",
+                                "name": "The Hero's Standard",
+                                "length": 3038,
+                                "description": "The sophisticated robbery of an armored-guard van leaves four dead, including some of the robbers themselves. Meanwhile, Malik clashes with the new detective on the squad, former army officer Neil Travis, in his zealous pursuit of those who have hurt him and his family.",
+                                "id": "AMP262101",
+                                "type": "EPISODE"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "eastwest_avatar",
+                        "name": "Series 1",
+                        "id": "EASTWEST01",
+                        "episodes": [
+                            {
+                                "image": "eastwest_sr01_ep05_splash",
+                                "name": "Haunted by the Past",
+                                "length": 3103,
+                                "description": "As he investigates the murder of a Serbian car salesman, Malik's obsession with finding the man who shot his father deepens, and he ignores evidence while seeking to prove a man's guilt.",
+                                "id": "AMP261905",
+                                "type": "EPISODE"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "eastwest_avatar",
+                        "name": "Series 2",
+                        "id": "EASTWEST02",
+                        "episodes": [
+                            {
+                                "image": "eastwest_sr02_ep07_splash",
+                                "name": "Atonement",
+                                "length": 3127,
+                                "description": "Major Crime and NSO unite again as the threat of a terror attack looms over them. Malik uses everything in his power to discover the conspirators, and in doing so, he finally finds out why Agent Angleton was killed.",
+                                "id": "AMP262007",
+                                "type": "EPISODE"
+                            }
+                        ]
+                    }
+                ],
+                "name": "East West 101",
+                "description": "As a devout Muslim in post-9/11 Australia, detective Zane Malik (Don Hany, Serangoon Road) feels constant pressure to prove himself but frequently clashes with his old-school superior (William McInnes, Deep Water). This critically acclaimed, award-winning crime series tackles thorny themes in today's complex world.",
+                "id": "eastwest"
+            },
+            {
+                "image": "placetocallhome_avatar",
+                "image_h": "placetocallhome_avatar",
+                "seasons": [
+                    {
+                        "image": "placetocallhome_avatar",
+                        "name": "Series 5",
+                        "id": "placetocallhome05",
+                        "episodes": [
+                            {
+                                "image": "placetocallhome_sr05_ep07_splash",
+                                "name": "The Anatomy of His Passing",
+                                "length": 3120,
+                                "description": "The Blighs contend with Douglas's death and planning his funeral, but Elizabeth takes it especially hard and lashes out at the rest of the family. Regina urges George to examine their accounts, suspecting that Richard will attack him financially, but Sarah can't bring herself to trust Regina.",
+                                "id": "AMP260407",
+                                "type": "EPISODE"
+                            }
+                        ]
+                    }
+                ],
+                "name": "A Place to Call Home",
+                "description": "Two new episodes added every Monday until December 25. This \"Down Under Downton\" (Star-Telegram) is an \"instantly irresistible saga\" (Wall Street Journal) brimming with secrets, passion, romance, and intrigue. Over four addictive seasons, A Place to Call Home explores the ties that hold families together and the betrayals that can tear them apart. CC Available. Seasons 3 to 5 not available in Canada.",
+                "id": "placetocallhome"
+            },
+            {
+                "image": "secretagent_avatar",
+                "image_h": "secretagent_comingsoon",
+                "seasons": [
+                    {
+                        "image": "secretagent_comingsoon",
+                        "name": "Secret Agent",
+                        "id": "secretagent01",
+                        "episodes": [
+                            {
+                                "image": "secretagent_sr01_ep04_splash",
+                                "name": "Episode 4 DELETE",
+                                "length": 3000,
+                                "description": "Winnie is devastated by the loss of her brother and by Verloc's role in the bombing. Meanwhile, both the Russian and English governments scramble to resolve the consequences of the incident.",
+                                "id": "AMP246904",
+                                "type": "EPISODE"
+                            }
+                        ]
+                    }
+                ],
+                "name": "The Secret Agent",
+                "description": "In this thrilling BBC adaptation of Joseph Conrad's timeless novel, Golden Globe nominee Toby Jones (Detectorists) stars as Anton Verloc, an unassuming Soho shopkeeper. Unbeknownst to even his loyal wife, Winnie (Vicky McClure, Line of Duty), Verloc also works for the Russian embassy as a spy.",
+                "id": "secretagent"
+            },
+            {
+                "image": "yellowhouse_avatar",
+                "image_h": "yellowhouse_avatar",
+                "seasons": [
+                    {
+                        "image": "yellowhouse_avatar",
+                        "name": "Feature Film",
+                        "id": "yellowhouse01",
+                        "episodes": [
+                            {
+                                "image": "yellowhouse_sr01_ep01_splash",
+                                "name": "The Yellow House",
+                                "length": 4392,
+                                "description": "Series premieres September 23. In November and December of 1888, Vincent Van Gogh and Paul Gauguin shared a home called \"The Yellow House\" in southern France. The out-of-luck painters abandon all responsibilities to commit themselves fully to their craft. Starring John Simm (Life on Mars, State of Play) as Van Gogh and John Lynch (Bleak House) as Gauguin, this moving drama brings to light the ordinary lives of two extraordinary men to illuminate a critical moment in the story of modern art.",
+                                "id": "AMD1003201",
+                                "type": "EPISODE"
+                            }
+                        ]
+                    }
+                ],
+                "name": "The Yellow House",
+                "description": "In November and December of 1888, Vincent Van Gogh and Paul Gauguin shared a home called \"The Yellow House\" in southern France. Starring John Simm (Life on Mars, State of Play) as Van Gogh and John Lynch (Bleak House) as Gauguin, this moving drama brings to light the ordinary lives of two extraordinary men to illuminate a critical moment in the story of modern art.",
+                "id": "yellowhouse"
+            },
+            {
+                "image": "herosjourney_avatar",
+                "image_h": "herosjourney_avatar",
+                "seasons": [
+                    {
+                        "image": "herosjourney_avatar",
+                        "name": "Documentary",
+                        "id": "herosjourney01",
+                        "episodes": [
+                            {
+                                "image": "herosjourney_sr01_ep01_splash",
+                                "name": "Joseph Campbell: The Hero's Journey",
+                                "length": 3452,
+                                "description": "One of the greatest storytellers of our time, and arguably the greatest mythologist, Joseph Campbell spent most of his long, rich career explaining how ancient myths like the Hero's Journey are relevant to modern life. In understanding the importance of myth as a vital, vibrant source of \"mankind's one great story,\" Campbell inspired others to embark on a quest for the meaning of myth in their own lives. This biographical portrait, filmed shortly before his death in 1987, follows Campbell's personal quest: a pathless journey of questioning, discovery, and ultimately of delight and joy.",
+                                "id": "AMP905501",
+                                "type": "EPISODE"
+                            }
+                        ]
+                    }
+                ],
+                "name": "Joseph Campbell: The Hero's Journey",
+                "description": "Mythological scholar Joseph Campbell became a cultural icon after the landmark PBS series The Power of Myth exposed a mainstream audience to his ideas and charisma. Through interviews with Campbell, lecture clips, and family photos, this film tells the story of Campbell discovered his own bliss and became a hugely influential thinker.",
+                "id": "herosjourney"
+            },
+            {
+                "image": "wayback_avatar",
+                "image_h": "wayback_avatar",
+                "seasons": [
+                    {
+                        "image": "wayback_avatar",
+                        "name": "Feature Film",
+                        "id": "wayback01",
+                        "episodes": [
+                            {
+                                "image": "wayback_sr01_ep01_splash",
+                                "name": "The Way Back",
+                                "length": 7992,
+                                "description": "A small band of convicts stage a daring escape from a World War II-era Siberian gulag, and embark on a treacherous journey across five countries in a race for freedom and survival. Starring Ed Harris, Jim Sturgess, Saoirse Ronan (Atonement) and Colin Farrell.",
+                                "id": "NMF693801",
+                                "type": "EPISODE"
+                            }
+                        ]
+                    }
+                ],
+                "name": "The Way Back",
+                "description": "A small band of convicts stage a daring escape from a World War II-era Siberian gulag, and embark on a treacherous journey across five countries in a race for freedom and survival. Starring Ed Harris, Jim Sturgess, Saoirse Ronan (Atonement) and Colin Farrell. CC Available.",
+                "id": "wayback"
+            },
+            {
+                "image": "deepwater_avatar",
+                "image_h": "deepwater_avatar",
+                "seasons": [
+                    {
+                        "image": "deepwater_avatar",
+                        "name": "Series 1",
+                        "id": "deepwater01",
+                        "episodes": [
+                            {
+                                "image": "deepwater_sr01_ep03_splash",
+                                "name": "Episode 3 - DELETE",
+                                "length": 3000,
+                                "description": "Evidence found on Toohey's body connects his death to the other killings, but phone records show that that the footballer's last few calls were to his lawyer. Tori receives startling news about what happened to her brother.",
+                                "id": "deepwater_sr01_ep03_splash",
+                                "type": "EPISODE"
+                            },
+                            {
+                                "image": "deepwater_sr01_ep02_splash",
+                                "name": "Episode 2- DELETE",
+                                "length": 3000,
+                                "description": "Inspector Peel stresses the need for damage control after footage of the Rohan incident is splashed all over the Internet. When another body is discovered, Tori and Nick interview football star Chris Toohey.",
+                                "id": "deepwater_sr01_ep02_splash",
+                                "type": "EPISODE"
+                            }
+                        ]
+                    }
+                ],
+                "name": "Deep Water",
+                "description": "Inspired by true events, this chilling Aussie miniseries is an \"addictive...electrifying watch\" (DailyReview.com.au). Yael Stone (Orange is the New Black) and Noah Taylor (Game of Thrones) star as detectives investigating the brutal murder of a young man. As the case unfolds, the detectives uncover links between to a series of unsolved murders of gay men in the 80s and 90s. Not available in Canada.",
+                "id": "deepwater"
+            },
+            {
+                "image_h": "prisonerwives_avatar",
+                "id": "prisonerswives"
+            },
+            {
+                "image": "foyles_avatar",
+                "image_h": "foyles_avatar",
+                "name": "Foyle's War",
+                "description": "While WWII rages across the Channel, police detective Christopher Foyle reluctantly remains on duty in his quiet English coastal town. Series 9 sees Foyle investigating cases involving international oil politics, anti-Semitism, and the wartime activities of the SOE. CC Available.",
+                "id": "foyleswar"
+            },
+            {
+                "image": "palace_avatar",
+                "image_h": "palace_avatar",
+                "name": "The Palace",
+                "description": "Buckingham Palace, England. The sudden death of the old king means the crown passes to Richard, the 24 year-old Prince of Wales; notorious scourge of Chelsea nightclubs and binge drinker extraordinaire. CC Available.",
+                "id": "palace"
+            },
+            {
+                "image": "mayday_avatar",
+                "image_h": "mayday_avatar",
+                "name": "Mayday",
+                "description": "A 14-year-old girl goes missing ahead of her central role in the local Mayday pageant, and residents of the local community start to wonder which one of them might be responsible for her abduction. CC Available.",
+                "id": "mayday"
+            },
+            {
+                "image": "dancetomusic_avatar",
+                "image_h": "dancetomusic_avatar",
+                "name": "A Dance to the Music of Time",
+                "description": "Four-part adaptation of Anthony Powell's 12-volume satirical novel sequence, this series follows the history of a group of friends, starting in their schooldays together, and their lives over the next 50 years. CC Available.",
+                "id": "dancetomusic"
+            },
+            {
+                "image": "empire_avatar",
+                "image_h": "empire_avatar",
+                "name": "Empire",
+                "description": "Hosted by veteran BBC broadcaster Jeremy Paxman (The Victorians), this five-part series examines the impact of the empire and how it continues to exert an influence today.",
+                "id": "empire"
+            }
+        ],
+        "categories": [
+            {
+                "view": "menu",
+                "showLoggedOut": false,
+                "name": "Your Acorn TV",
+                "options": [
+                    {
+                        "image": "carousel",
+                        "view": "franchiseList",
+                        "total": 10,
+                        "baseURL": "/preferences?Category=recentlyWatched",
+                        "name": "Recently Watched",
+                        "count": 10,
+                        "description": "A selection of the franchises you've viewed lately.",
+                        "id": "recentlyWatched",
+                        "page": 0,
+                        "media": [
+                            {
+                                "image_h": "eastwest_sr03_ep01_splash",
+                                "episodeImage": "eastwest_sr03_ep01_splash",
+                                "seasonID": "EASTWEST03",
+                                "franchiseImage": "eastwest_avatar",
+                                "franchiseID": "eastwest",
+                                "position": 2510,
+                                "episodeID": "AMP262101",
+                                "franchiseName": "East West 101"
+                            },
+                            {
+                                "image_h": "eastwest_sr01_ep05_splash",
+                                "episodeImage": "eastwest_sr01_ep05_splash",
+                                "seasonID": "EASTWEST01",
+                                "franchiseImage": "eastwest_avatar",
+                                "franchiseID": "eastwest",
+                                "position": 846,
+                                "episodeID": "AMP261905",
+                                "franchiseName": "East West 101"
+                            },
+                            {
+                                "image_h": "placetocallhome_sr05_ep07_splash",
+                                "episodeImage": "placetocallhome_sr05_ep07_splash",
+                                "seasonID": "placetocallhome05",
+                                "franchiseImage": "placetocallhome_avatar",
+                                "franchiseID": "placetocallhome",
+                                "position": 2064,
+                                "episodeID": "AMP260407",
+                                "franchiseName": "A Place to Call Home"
+                            },
+                            {
+                                "image_h": "secretagent_sr01_ep04_splash",
+                                "episodeImage": "secretagent_sr01_ep04_splash",
+                                "seasonID": "secretagent01",
+                                "franchiseImage": "secretagent_avatar",
+                                "franchiseID": "secretagent",
+                                "position": 507,
+                                "episodeID": "AMP246904",
+                                "franchiseName": "The Secret Agent"
+                            },
+                            {
+                                "image_h": "yellowhouse_sr01_ep01_splash",
+                                "episodeImage": "yellowhouse_sr01_ep01_splash",
+                                "seasonID": "yellowhouse01",
+                                "franchiseImage": "yellowhouse_avatar",
+                                "franchiseID": "yellowhouse",
+                                "position": 2043,
+                                "episodeID": "AMD1003201",
+                                "franchiseName": "The Yellow House"
+                            },
+                            {
+                                "image_h": "herosjourney_sr01_ep01_splash",
+                                "episodeImage": "herosjourney_sr01_ep01_splash",
+                                "seasonID": "herosjourney01",
+                                "franchiseImage": "herosjourney_avatar",
+                                "franchiseID": "herosjourney",
+                                "position": 193,
+                                "episodeID": "AMP905501",
+                                "franchiseName": "Joseph Campbell: The Hero's Journey"
+                            },
+                            {
+                                "image_h": "wayback_sr01_ep01_splash",
+                                "episodeImage": "wayback_sr01_ep01_splash",
+                                "seasonID": "wayback01",
+                                "franchiseImage": "wayback_avatar",
+                                "franchiseID": "wayback",
+                                "position": 228,
+                                "episodeID": "NMF693801",
+                                "franchiseName": "The Way Back"
+                            },
+                            {
+                                "image_h": "deepwater_sr01_ep03_splash",
+                                "episodeImage": "deepwater_sr01_ep03_splash",
+                                "seasonID": "deepwater01",
+                                "franchiseImage": "deepwater_avatar",
+                                "franchiseID": "deepwater",
+                                "position": 184,
+                                "episodeID": "deepwater_sr01_ep03_splash",
+                                "franchiseName": "Deep Water"
+                            },
+                            {
+                                "image_h": "deepwater_sr01_ep02_splash",
+                                "episodeImage": "deepwater_sr01_ep02_splash",
+                                "seasonID": "deepwater01",
+                                "franchiseImage": "deepwater_avatar",
+                                "franchiseID": "deepwater",
+                                "position": 270,
+                                "episodeID": "deepwater_sr01_ep02_splash",
+                                "franchiseName": "Deep Water"
+                            },
+                            {
+                                "image_h": "eastwest_sr02_ep07_splash",
+                                "episodeImage": "eastwest_sr02_ep07_splash",
+                                "seasonID": "EASTWEST02",
+                                "franchiseImage": "eastwest_avatar",
+                                "franchiseID": "eastwest",
+                                "position": 2624,
+                                "episodeID": "AMP262007",
+                                "franchiseName": "East West 101"
+                            }
+                        ],
+                        "headline": "Recently Watched",
+                        "categoryID": "yourAcornTV"
+                    },
+                    {
+                        "image": "carousel",
+                        "view": "franchiseList",
+                        "total": 6,
+                        "baseURL": "/preferences?Category=watchlist",
+                        "name": "Your Watchlist",
+                        "count": 6,
+                        "description": "The franchises you've chosen to keep close at hand.",
+                        "id": "watchlist",
+                        "page": 0,
+                        "media": [
+                            {
+                                "franchiseID": "prisonerswives"
+                            },
+                            {
+                                "franchiseID": "foyleswar"
+                            },
+                            {
+                                "franchiseID": "palace"
+                            },
+                            {
+                                "franchiseID": "mayday"
+                            },
+                            {
+                                "franchiseID": "dancetomusic"
+                            },
+                            {
+                                "franchiseID": "empire"
+                            }
+                        ],
+                        "headline": "Your Watchlist",
+                        "categoryID": "yourAcornTV"
+                    }
+                ],
+                "description": "Your personalized Acorn TV experience.",
+                "id": "yourAcornTV"
+            },
+            {
+                "image": "url",
+                "view": "manageMembership",
+                "showLoggedOut": false,
+                "name": "Manage Membership",
+                "icon": "icon-cog",
+                "options": {},
+                "description": "Manage your Acorn TV membership.",
+                "id": "help/manageMembership",
+                "media": {},
+                "carousel": false,
+                "headline": ""
+            },
+            {
+                "view": "menu",
+                "name": "Help",
+                "options": [
+                    {
+                        "view": "manageMembership",
+                        "showLoggedOut": false,
+                        "name": "Manage Membership",
+                        "icon": "icon-circle-blank",
+                        "description": "Manage your Acorn TV membership.",
+                        "id": "manageMembership",
+                        "categoryID": "help"
+                    }
+                ],
+                "description": "Seek help here.",
+                "id": "help"
+            }
+        ]
+    },
+    "Session": {
+        "SignupRestricted": true,
+        "LoggedIn": true,
+        "SessionID": "400de052-b09e-42cc-a483-2d7413bbffca"
+    }
+}

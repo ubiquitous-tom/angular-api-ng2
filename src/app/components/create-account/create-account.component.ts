@@ -9,10 +9,13 @@ import * as $ from 'jquery';
 })
 export class CreateAccountComponent implements OnInit {
 
+  public step: number;
+
   constructor() { }
 
   ngOnInit() {
-    console.log($);
+    console.log($.fn);
+    this.step = 1;
   }
 
 }

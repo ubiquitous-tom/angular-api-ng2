@@ -12,50 +12,62 @@
 
             <!-- <div id="outageAlert" style="display:none" class="alert alert-error">10/1/14: Our account management pages are experiencing a temporary outage. Current members should be able to view programs; however, it is not possible at this time to make any account changes or to start a new account. We expect the issue to be resolved today. Thank you for your patience in the meantime.</div> -->
 
-            <form novalidate class="form-signin form-processing" [formGroup]="signUpForm" (ngSubmit)="onFormSubmit()">
-              <div id="infoUpdatePassword" style="display: none;">
-                <div class="alert alert-info">
+            <form novalidate class="form-signin form-processing" [formGroup]="signInForm" (ngSubmit)="onFormSubmit()" #formSignin>
+
+              <div [(hidden)]="!signInState">
+                <div id="infoUpdatePassword" style="display: none;">
+                  <div class="alert alert-info">
+                    <p>
+                      <span>Your password has been updated. Please login again to continue using the site.</span>
+                    </p>
+                  </div>
+                </div>
+                <h3 class="formhead">Sign In</h3>
+
+                <div class="control-group" ngClass="{'error': !signInForm.Username.valid}">
+                  <label for="Username" class="control-label">E-Mail</label>
+                  <div class="form-controls">
+                    <input id="Username" formControlName="Username" class="input-block-level" 
+                      placeholder="" type="email">
+                  </div>
+                  <!-- <span for="Username" class="help-inline">This field is required. </span> -->
+                </div>
+
+                <div class="control-group">
+                  <label for="Password" class="control-label">Password
+                    <span>(case-sensitive)</span>
+                  </label>
+                  <div class="controls">
+                    <input id="Password" formControlName="Password" class="input-block-level" 
+                      placeholder="" type="password">
+                  </div>
+                  <!-- <span for="Password" class="help-inline">This field is required. </span> -->
+                </div>
+
+                <br>
+                <br>
+
+                <div class="control-group">
+                  <div class="controls">
+                    <button class="btn btn-medium btn-primary btn-block btn-jumbo"
+                      [disabled]="!signInForm.valid" type="submit"> Sign In </button>
+                  </div>
+                </div>
+                <div class="forgot-password">
                   <p>
-                    <span>Your password has been updated. Please login again to continue using the site.</span>
+                    <a href="forgotpassword">Forgot your password? </a>
                   </p>
                 </div>
               </div>
-              <h3 class="formhead">Sign In</h3>
 
-              <div class="control-group" ngClass="{'error': !signUpForm.Username.valid}">
-                <label for="Username" class="control-label">E-Mail</label>
-                <div class="form-controls">
-                  <input id="Username" formControlName="Username" class="input-block-level" 
-                    placeholder="" type="email">
-                </div>
-                <!-- <span for="Username" class="help-inline">This field is required. </span> -->
-              </div>
-
-              <div class="control-group">
-                <label for="Password" class="control-label">Password
-                  <span>(case-sensitive)</span>
-                </label>
-                <div class="controls">
-                  <input id="Password" formControlName="Password" class="input-block-level" 
-                    placeholder="" type="password">
-                </div>
-                <!-- <span for="Password" class="help-inline">This field is required. </span> -->
-              </div>
-
-              <br>
-              <br>
-
-              <div class="control-group">
-                <div class="controls">
-                  <button class="btn btn-medium btn-primary btn-block btn-jumbo"
-                    [disabled]="!signUpForm.valid"> Sign In </button>
+              <div [(hidden)]="signInState">
+                <div class="alert alert-error">
+                  There is a problem with your account.<br>
+                  You can preview Acorn TV content <a href="{{ acornTVURL }}"><strong>here</strong></a>.<br>
+                  If you need further assistance please <a href="{{ contactUsURL }}"><strong>contact us</strong></a>.
                 </div>
               </div>
-              <div class="forgot-password">
-                <p>
-                  <a href="forgotpassword">Forgot your password? </a>
-                </p>
-              </div>
+
             </form>
 
           </div>

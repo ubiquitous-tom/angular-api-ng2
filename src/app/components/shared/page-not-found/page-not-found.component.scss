@@ -1,0 +1,24 @@
+.alert {
+    margin-bottom: 10px;
+}
+
+.alert-info {
+    background: #e7fbfd;
+    /*font-size: 14px; line-height: 16px;*/
+    color: #095e67;
+    /*border-color: #c1f5fa;*/
+}
+
+.alert-danger,
+.alert-error {
+    color: #993333;
+}
+
+.alert .open-dialog-passwordreset {
+    font-weight: bold;
+    padding-left: 3px;
+}
+
+.alert i {
+    margin-right: 5px;
+}

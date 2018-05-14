@@ -2,16 +2,16 @@
 <div class="container">
   <div class="progress-steps">
     <ul class="clearfix">
-      <li class="active">
+      <li [ngClass]="{'active': step == 1}">
         <a>Step 1</a>
       </li>
-      <li>
+      <li [ngClass]="{'active': step == 2}">
         <a>Step 2</a>
       </li>
-      <li class="hidden-xs">
+      <li [ngClass]="step == 3 ? 'active hidden-xs' : 'hidden-xs'">
         <a>Start Watching</a>
       </li>
-      <li class="visible-xs">
+      <li [ngClass]="step == 4 ? 'active visible-xs' : 'visible-xs'">
         <a>Finish</a>
       </li>
     </ul>

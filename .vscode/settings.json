@@ -1,2 +1,5 @@
 {
+    "auto-close-tag.excludedTags": [
+        "any"
+    ]
 }

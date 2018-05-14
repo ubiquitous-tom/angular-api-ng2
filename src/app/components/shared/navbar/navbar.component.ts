@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.router.url, this.router, this.aRouter);
+    // console.log(this.router.url, this.router, this.aRouter);
     this.currentUrl = this.router.url;
   }
 
@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
   }
 
   displayLink(link: string) {
-    return this.location.isCurrentPathEqualTo(link); //this.currentUrl === link;
+    return this.location.isCurrentPathEqualTo(link); // this.currentUrl === link;
   }
 
 }

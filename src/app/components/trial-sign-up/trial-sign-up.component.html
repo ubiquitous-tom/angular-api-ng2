@@ -7,7 +7,7 @@
     <h5>Watch the best British mystery, drama, and comedy all in one place, always commercial free. </h5>
   </div>
 
-  <app-progress-bar></app-progress-bar>
+  <app-progress-bar step="{{ step }}"></app-progress-bar>
 
 
   <div class="container">
@@ -135,7 +135,7 @@
               <div ng-class="{error: trialForm.ccnumber.$invalid && submitted}" class="control-group" id="creditCardNumber">
                 <label for="ccnumber" class="control-label">Credit Card Number *
                         <span>
-                          <img class="hidden-xs" src="img/creditcard.png" style="float:right;width:125px;margin-bottom:-5px;" />
+                          <img class="hidden-xs" src="assets/img/creditcard.png" style="float:right;width:125px;margin-bottom:-5px;" />
                         </span>
                       </label>
                 <div class="controls">

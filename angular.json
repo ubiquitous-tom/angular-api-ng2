@@ -29,12 +29,14 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/fancybox-plus/css//jquery.fancybox-plus.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/underscore/underscore-min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/fancybox-plus/dist/jquery.fancybox-plus.min.js",
               "node_modules/doc-cookies/docCookies.umd.js",
               "src/app/app.plugins.ts"
             ]
