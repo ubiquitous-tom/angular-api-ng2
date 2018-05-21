@@ -18,8 +18,8 @@ export class SignInService {
       withCredentials: true,
       crossDomain: true
     };
-    // return this.http.post('/initializeapp', data, httpParams);
-    return this.http.get('/assets/mock/sign-in/sign-in.json');
+    return this.http.post('/initializeapp', data, httpParams);
+    // return this.http.get('/assets/mock/sign-in/sign-in.json');
   }
 
   getSignUpSplitScenario() {

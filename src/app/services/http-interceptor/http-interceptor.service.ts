@@ -3,12 +3,14 @@ import {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
-  HttpRequest
+  HttpRequest,
+  HttpErrorResponse
 } from '@angular/common/http';
-
-import { Observable } from 'rxjs';
-
+import { Observable, pipe } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { SignUpService } from '../sign-up/sign-up.service';
+import { HttpResponse } from 'selenium-webdriver/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 
   apiUrl = '';
 
-  constructor() {
+  constructor(private signUp: SignUpService) {
     if (isDevMode()) {
       console.log('👋 Development!');
       this.apiUrl = environment.apiUrl;
@@ -30,13 +32,23 @@ export class HttpInterceptorService implements HttpInterceptor {
     // console.log(environment.apiUrl);
     // console.log(req, next);
 
-    // console.log('before', req.url);
-    // req = req.clone({
-    //   // url: req.url.replace('/users', '/albums')
-    //   url: this.apiUrl + req.url
-    // });
-    // console.log('after', req.url);
+    this.signUp.onNotify(true);
 
-    return next.handle(req);
+    console.log('before', req.url);
+    req = req.clone({
+      // url: req.url.replace('/users', '/albums')
+      url: this.apiUrl + req.url
+    });
+    console.log('after', req.url);
+
+    return next.handle(req)
+      .pipe(
+        tap((event: HttpEvent<any>) => {
+          console.log(event);
+          // if (event instanceof HttpResponse) {
+            this.signUp.onNotify(false);
+          // }
+        })
+      );
   }
 }

@@ -12,7 +12,7 @@
 
             <!-- <div id="outageAlert" style="display:none" class="alert alert-error">10/1/14: Our account management pages are experiencing a temporary outage. Current members should be able to view programs; however, it is not possible at this time to make any account changes or to start a new account. We expect the issue to be resolved today. Thank you for your patience in the meantime.</div> -->
 
-            <form novalidate class="form-signin form-processing" [formGroup]="signInForm" (ngSubmit)="onFormSubmit()" #formSignin>
+            <form novalidate class="form-signin form-processing" [formGroup]="signInForm" (ngSubmit)="onFormSubmit()">
 
               <div [(hidden)]="!signInState">
                 <div id="infoUpdatePassword" style="display: none;">

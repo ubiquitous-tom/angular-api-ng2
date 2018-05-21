@@ -14,82 +14,119 @@
     <div class="row">
       <div id="form">
         <!-- END REPLACEMENT -->
-        <div ng-controller="CreateAccountController" class="form-wrap" ng-cloak>
+        <div class="form-wrap">
           <div class="col-md-12 col-sm-12">
             <h3 class="formhead">Create Your Account
               <div class="help-form hidden-xs">* Indicates Required Fields</div>
             </h3>
           </div>
-          <form ng-model="createForm" name="createForm" id="createForm" novalidate="novalidate" class="form-processing">
-            <div class="col-md-6 col-sm-6 col-md-12">
-              <div ng-class="{error: createForm.Username.$invalid && submitted}" class="control-group">
-                <label for="Username" class="control-label">E-Mail Address
-                <span class="req">*</span>
-              </label>
-                <div class="controls">
-                  <input id="Username" ng-model="Username" name="Username" class="input-block-level email" type="email" required>
+
+          <form (ngSubmit)="onSubmit(form)" [formGroup]="form" novalidate>
+
+            <div formGroupName="email">
+              <div class="col-md-6 col-sm-6 col-md-12">
+                <div [ngClass]="{
+                  'control-group': true,
+                  'error': form.get('email').get('Username').hasError('email') && form.get('email').get('Username').touched
+                }">
+                  <label for="Username" class="control-label">E-Mail Address
+                    <span class="req">*</span>
+                  </label>
+                  <div class="controls">
+                    <input
+                      formControlName="Username"
+                      class="input-block-level"
+                      type="email"
+                      placeholder="Your email address">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6  col-md-12">
+                <div ng-class="{error: form.confirm_email.$invalid && submitted}" class="control-group">
+                  <label for="confirm_email" class="control-label">Confirm E-Mail Address
+                    <span class="req">*</span>
+                  </label>
+                  <div class="controls">
+                    <input
+                      formControlName="confirm_email"
+                      class="input-block-level"
+                      type="email"
+                      placeholder="Confirm your email address">
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-sm-6  col-md-12">
-              <div ng-class="{error: createForm.confirm_email.$invalid && submitted}" class="control-group">
-                <label for="confirm_email" class="control-label">Confirm E-Mail Address
-                <span class="req">*</span>
-              </label>
-                <div class="controls">
-                  <input id="confirm_email" ng-model="confirm_email" name="confirm_email" match="Username" class="input-block-level email" type="email" required>
+
+            <div formGroupName="password">
+              <div class="col-md-12 col-sm-12">
+                <div ng-class="{error: form.Password.$invalid && submitted}" class="control-group">
+                  <label for="Password" class="control-label">Password
+                    <span class="req">*</span>
+                    <span class="help-input hidden-xs">Please enter a minimum of 6 characters</span>
+                  </label>
+                  <div class="controls">
+                    <input 
+                      formControlName="Password"
+                      class="input-block-level"
+                      type="password"
+                      placeholder="Your password">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <div ng-class="{error: form.confirm_password.$invalid && submitted}" class="control-group">
+                  <label for="confirm_password" class="control-label">Confirm Password
+                    <span class="req">*</span>
+                  </label>
+                  <div class="controls">
+                    <input
+                      formControlName="confirm_password"
+                      class="input-block-level"
+                      type="password"
+                      placeholder="Confirm your password">
+                  </div>
                 </div>
               </div>
             </div>
+
             <div class="col-md-12 col-sm-12">
-              <div ng-class="{error: createForm.Password.$invalid && submitted}" class="control-group">
-                <label for="Password" class="control-label">Password
-                <span class="req">*</span>
-                <span class="help-input hidden-xs">Please enter a minimum of 6 characters</span>
-              </label>
-                <div class="controls">
-                  <input id="Password" ng-model="Password" name="Password" class="input-block-level" type="password" pattern=".{6,}" required>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div ng-class="{error: createForm.confirm_password.$invalid && submitted}" class="control-group">
-                <label for="confirm_password" class="control-label">Confirm Password
-                <span class="req">*</span>
-              </label>
-                <div class="controls">
-                  <input id="confirm_password" ng-model="confirm_password" name="confirm_password" class="input-block-level" match="Password" type="password" pattern=".{6,}" required>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div ng-class="{error: createForm.promo_code.$invalid && submitted}" class="control-group">
+              <div ng-class="{error: form.promo_code.$invalid && submitted}" class="control-group">
                 <label for="promo_code" class="control-label">Code
-                <span class="help-input hidden-xs">Please enter an access or coupon code if you have one</span>
-              </label>
+                  <span class="help-input hidden-xs">Please enter an access or coupon code if you have one</span>
+                </label>
                 <div class="controls">
-                  <input id="promo_code" ng-model="promo_code" name="promo_code" class="input-block-level " placeholder="" type="text" ng-required="promo_code.length > 0">
+                  <input
+                    formControlName="promo_code"
+                    class="input-block-level"
+                    type="text"
+                    placeholder="Please enter an access or coupon code if you have one">
                 </div>
               </div>
             </div>
+
             <div class="col-md-12 col-sm-12">
               <div class="control-group more-info">
                 <div class="controls">
                   <label class="checkbox">
-                  <input checked="checked" name="mktgoptin" id="mktgoptin" type="checkbox"> Sign me up for the Acorn TV newsletter
-                </label>
+                    <input formControlName="mktgoptin"type="checkbox"> Sign me up for the Acorn TV newsletter
+                  </label>
                 </div>
               </div>
             </div>
-            <div class="col-md-12 col-sm-12" style="margin-bottom: 30px;">
+
+            <div class="col-md-12 col-sm-12">
               <div class="control-group">
                 <div class="controls">
-                  <button class="btn btn-medium btn-primary btn-block btn-jumbo" ng-click="submitted= true; validateCreateAccount();">Continue to Step 2
-                  <i class="fa icon-angle-right" style="margin-left:5px;"></i>
-                </button>
+                  <button
+                    class="btn btn-medium btn-primary btn-block btn-jumbo"
+                    type="submit"
+                    >Continue to Step 2
+                    <i class="fa fa-angle-right"></i>
+                  </button>
                 </div>
               </div>
             </div>
+
           </form>
         </div>
       </div>
@@ -97,7 +134,7 @@
   </div>
 
   <p style="text-align:center"></p>
-  <div style="text-align:center">
+  <div style="text-align:center;margin-top: 30px;">
     <!-- DO NOT EDIT - GlobalSign SSL Site Seal Code - DO NOT EDIT -->
     <table style="text-align: center; margin: 0 auto" width=125 border=0 cellspacing=0 cellpadding=0 title="CLICK TO VERIFY: This site uses a GlobalSign SSL Certificate to secure your personal information.">
       <tr>

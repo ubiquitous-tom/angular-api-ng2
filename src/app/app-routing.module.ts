@@ -6,11 +6,12 @@ import { CreateAccountComponent } from './components/create-account/create-accou
 import { TrialSignUpComponent } from './components/trial-sign-up/trial-sign-up.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: '', component: IndexComponent },
-  { path: 'signin', component: SignInComponent },
+  { path: 'signin', component: SignInComponent, canActivate: [AuthGuardService] },
   { path: 'createaccount', component: CreateAccountComponent },
   { path: 'trialsignup', component: TrialSignUpComponent },
   { path: 'forgetpassword', component: ForgetPasswordComponent },

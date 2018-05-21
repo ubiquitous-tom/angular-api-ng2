@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-form-processing',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormProcessingComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private elementRef: ElementRef,
+    private renderer: Renderer2
+  ) { }
 
   ngOnInit() {
   }
