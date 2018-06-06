@@ -5,27 +5,30 @@ import { ActivatedRoute } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class SignInService {
+export class CreateAccountService {
+
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) { }
 
-  doSignIn(params) {
-    const signinData = {
+  doCreateAccount(params) {
+    const createAccountData = {
       username: params.username,
-      password: params.password
+      password: params.password,
+      frmmktgoptin: params.frmmktgoptin,
+      promoCode: params.promoCode,
     };
-    const data = this.getSignInJSONData(signinData);
+    const data = this.getCreateAccountJSONData(createAccountData);
     const httpParams = {
       withCredentials: true,
-      crossDomain: true
+      crossDomain: true,
     };
     return this.http.post('/initializeapp', data, httpParams);
     // return this.http.get('/assets/mock/sign-in/sign-in.json');
   }
 
-  getSignUpSplitScenario() {
+  getSplitScenario() {
     let source = '';
     let scenario = 'TRIAL_SIGNUP';
     let rokuSpecial = false;
@@ -60,7 +63,7 @@ export class SignInService {
   }
 
   getOperationalScenario() {
-    let scenario = 'SIGNIN';
+    let scenario = 'CREATE_ACCOUNT';
     this.route.queryParamMap.subscribe(params => {
       const operationalScenario = params.get('operationalScenario');
       switch (operationalScenario) {
@@ -74,7 +77,7 @@ export class SignInService {
           scenario = 'STORE';
           break;
         default:
-          scenario = 'SIGNIN';
+          scenario = 'CREATE_ACCOUNT';
           break;
       }
     });
@@ -82,7 +85,7 @@ export class SignInService {
     return scenario;
   }
 
-  getSignInJSONData(params) {
+  getCreateAccountJSONData(params) {
     return {
       App: {
         AppVersion: 'Sign-Up-Website'
@@ -92,8 +95,14 @@ export class SignInService {
         Password: params.password
       },
       Request: {
-        SplitScenario: this.getSignUpSplitScenario(),
+        SplitScenario: this.getSplitScenario(),
         OperationalScenario: this.getOperationalScenario()
+      },
+      Account: {
+        MarketingOptIn: params.mktgoptin
+      },
+      PromoCode: {
+        Code: params.promoCode
       }
     };
   }
