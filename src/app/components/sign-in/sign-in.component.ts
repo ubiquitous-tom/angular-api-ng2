@@ -151,6 +151,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
       },
       error => {
         console.log(error);
+        this.domService.destroyRef(this.loaderContainerRef, 0);
         // $('.control-group').show();
         try {
           // alertMsg = $.parseJSON(xhr.responseText);
@@ -186,7 +187,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     const type = resp.RecommendedAction.Type;
     console.log(`navigate to createaccount`);
     this.router.navigateByUrl('/createaccount');
-    // return false;
+    return false;
     // switch (type) {
     //   case 'HomePage':
     //     // window.location.replace(acornTVHomeLink);
@@ -219,7 +220,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     //     this.router.navigateByUrl('/cancel');
     //     break;
     //   default:
-    //     this.signInState = false;
+    //     return false;
     // }
   }
 }

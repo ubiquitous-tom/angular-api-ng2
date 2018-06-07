@@ -1,11 +1,11 @@
 import { Component, OnInit, ElementRef, Renderer2, ComponentRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray, Validator, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { DomService } from '../../services/dom/dom.service';
 import { CreateAccountService } from '../../services/create-account/create-account.service';
 import { FormProcessingComponent } from '../shared/form-processing/form-processing.component';
 
 import * as $ from 'jquery';
+import { SignUpService } from '../../services/sign-up/sign-up.service';
 
 @Component({
   selector: 'app-create-account',
@@ -21,11 +21,11 @@ export class CreateAccountComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private domService: DomService,
+    private signUpService: SignUpService,
     private createAccountService: CreateAccountService,
     private el: ElementRef,
-    private renderer2: Renderer2
+    private renderer: Renderer2
   ) {
     this.step = 1;
 
@@ -94,127 +94,21 @@ export class CreateAccountComponent implements OnInit {
       .subscribe(
         success => {
           console.log(success);
-          this.recommendedActionType(success);
+          this.signUpService.recommendedActionType(success);
         },
         error => {
-          console.log(error);
-          // $('.control-group').show();
-          try {
-            // alertMsg = $.parseJSON(xhr.responseText);
-            // const alertMsg = error;
-            // $('.alert-info').remove();
-            // $('.form-processing').prepend(
-            //   '<div class="alert alert-error">' + alertMsg.error + '</div>'
-            // );
-          } catch (e) {
-            // console.log("e: " + e);
-          }
+          this.createAccountService.errorHandling(error);
 
-          // const div = this.renderer.createElement('div');
-          // this.renderer.addClass(div, 'alert');
-          // this.renderer.addClass(div, 'alert-error');
-          // const text = this.renderer.createText(error.error);
-          // this.renderer.appendChild(div, text);
-          // console.log(div);
-          // console.log(this.formSignin.nativeElement);
+          this.domService.destroyRef(this.loaderContainerRef, 0);
+          const errorMsg = error.error.error;
 
-          // const parent = this.formSignin.nativeElement.parentNode;
-          // const refChild = this.formSignin.nativeElement;
-          // this.renderer.insertBefore(parent, div, refChild);
+          // this.signUpService.notification(errorMsg);
         },
         () => {
           console.log('complete');
           this.domService.destroyRef(this.loaderContainerRef, 0);
         }
       );
-  }
-
-  recommendedActionType(resp) {
-    const type = resp.RecommendedAction.Type;
-    console.log(`navigate to trial signup`);
-    this.router.navigateByUrl('/trialsignup');
-    // return false;
-    // switch (type) {
-    //   case 'HomePage':
-    //     // window.location.replace(acornTVHomeLink);
-    //     this.router.navigateByUrl('/');
-    //     break;
-    //   case 'BillingAddress':
-    //   case 'TrialSignup':
-    //     // window.location.replace('/trialsignup.html');
-    //     console.log(type);
-    //     this.router.navigateByUrl('trialsignup');
-    //     break;
-    //   case 'DeviceAuthorization':
-    //     window.location.replace('/deviceauthorization.html');
-    //     this.router.navigateByUrl('/deviceauthorization');
-    //     break;
-    //   case 'ExpiredSignup':
-    //     // window.location.replace(membershipURL());
-    //     this.router.navigateByUrl('');
-    //     break;
-    //   case 'Account':
-    //     // window.location.replace(accountURL());
-    //     this.router.navigateByUrl('');
-    //     break;
-    //   case 'Store':
-    //     // window.location.replace(storeURL());
-    //     this.router.navigateByUrl('');
-    //     break;
-    //   case 'Cancel':
-    //     // window.location.replace(cancelURL());
-    //     this.router.navigateByUrl('/cancel');
-    //     break;
-    //   default:
-    //     this.signInState = false;
-    // }
-
-    switch (type) {
-      case 'HomePage':
-        // window.location.replace(acornTVHomeLink);
-        this.router.navigateByUrl('/');
-        break;
-      case 'BillingAddress':
-      case 'TrialSignup':
-        // if ($scope.rokuSpecial) {
-        //   window.location.replace('/trialsignup-r.html');
-        // } else if ($scope.costcoSpecial) {
-        //   window.location.replace('/trialsignup-c.html');
-        // } else if ($scope.promoSpecial) {
-        //   window.location.replace('/trialsignup-p.html');
-        // } else if ($scope.operaSpecial) {
-        //   window.location.replace('/trialsignup-o.html');
-        // } else if ($scope.catalogSpecial) {
-        //   window.location.replace('/trialsignup-g.html');
-        // } else if ($scope.bestbuySpecial) {
-        //   window.location.replace('/trialsignup-b.html');
-        // } else {
-        //   window.location.replace('/trialsignup.html');
-        // }
-        this.router.navigateByUrl('/trialsignup');
-        break;
-      case 'DeviceAuthorization':
-        // window.location.replace('/deviceauthorization.html');
-        this.router.navigateByUrl('/deviceauthorization');
-        break;
-      case 'ExpiredSignup':
-        // var storeURL = window.location.hostname.replace('signup', 'store');
-        // window.location.replace(storeURL + '/#membership');
-        // https://medium.com/@adrianfaciu/using-the-angular-router-to-navigate-to-external-links-15cc585b7b88
-        this.router.navigate([
-          '/#membership',
-          { externalUrl: 'store.acorn.dev' }
-        ], {
-          skipLocationChange: true,
-        });
-        break;
-      default:
-        // $('.alert-info').remove();
-        // $('.form-processing').prepend('<div class="alert alert-error">There is a problem with your account. You can preview Acorn TV content <a href="' + acornTVURL() + '"><strong>here</strong></a>. If you need further assistance please <a href="' + contactUsURL() + '"><strong>contact us</strong></a>.</div>');
-        // $('html, body').animate({
-        //   scrollTop: 0
-        // }, 'slow');
-    }
   }
 
   // $scope.submitCreateAccount = function () {
