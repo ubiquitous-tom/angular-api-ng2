@@ -20,7 +20,6 @@ import { map, filter, scan, subscribeOn } from 'rxjs/operators';
 
 import * as $ from 'jquery';
 import { SignUpService } from '../../services/sign-up/sign-up.service';
-import { SignInService } from '../../services/sign-in/sign-in.service';
 import { SignIn } from '../../services/sign-in/sign-in';
 
 import { DomService } from '../../services/dom/dom.service';
@@ -60,9 +59,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
     private router: Router,
     private location: Location,
     private el: ElementRef,
-    private renderer: Renderer2,
+    // private renderer: Renderer2,
     private signUpService: SignUpService,
-    private signInService: SignInService,
     private domService: DomService
   ) {
     // this.signUpService.notify
@@ -144,25 +142,16 @@ export class SignInComponent implements OnInit, AfterViewInit {
       password: password
     };
 
-    this.signInService.doSignIn(signInParams).subscribe(
+    this.signUpService.initializeApp(signInParams)
+    .subscribe(
       success => {
         console.log(success);
-        this.recommendedActionType(success);
+        const type = success.RecommendedAction.Type;
+        this.signUpService.recommendedActionType(type);
       },
       error => {
         console.log(error);
         this.domService.destroyRef(this.loaderContainerRef, 0);
-        // $('.control-group').show();
-        try {
-          // alertMsg = $.parseJSON(xhr.responseText);
-          // const alertMsg = error;
-          // $('.alert-info').remove();
-          // $('.form-processing').prepend(
-          //   '<div class="alert alert-error">' + alertMsg.error + '</div>'
-          // );
-        } catch (e) {
-          // console.log("e: " + e);
-        }
 
         // const div = this.renderer.createElement('div');
         // this.renderer.addClass(div, 'alert');
@@ -170,57 +159,16 @@ export class SignInComponent implements OnInit, AfterViewInit {
         // const text = this.renderer.createText(error.error);
         // this.renderer.appendChild(div, text);
         // console.log(div);
-        // console.log(this.formSignin.nativeElement);
+        // console.log(this.signInForm.nativeElement);
 
-        // const parent = this.formSignin.nativeElement.parentNode;
-        // const refChild = this.formSignin.nativeElement;
+        // const parent = this.signInForm.nativeElement.parentNode;
+        // const refChild = this.signInForm.nativeElement;
         // this.renderer.insertBefore(parent, div, refChild);
       },
       () => {
         console.log('complete');
-        this.domService.destroyRef(this.loaderContainerRef, 0);
+        // this.domService.destroyRef(this.loaderContainerRef, 0);
       }
     );
-  }
-
-  recommendedActionType(resp) {
-    const type = resp.RecommendedAction.Type;
-    console.log(`navigate to createaccount`);
-    this.router.navigateByUrl('/createaccount');
-    return false;
-    // switch (type) {
-    //   case 'HomePage':
-    //     // window.location.replace(acornTVHomeLink);
-    //     this.router.navigateByUrl('/');
-    //     break;
-    //   case 'BillingAddress':
-    //   case 'TrialSignup':
-    //     // window.location.replace('/trialsignup.html');
-    //     console.log(type);
-    //     this.router.navigateByUrl('trialsignup');
-    //     break;
-    //   case 'DeviceAuthorization':
-    //     window.location.replace('/deviceauthorization.html');
-    //     this.router.navigateByUrl('/deviceauthorization');
-    //     break;
-    //   case 'ExpiredSignup':
-    //     // window.location.replace(membershipURL());
-    //     this.router.navigateByUrl('');
-    //     break;
-    //   case 'Account':
-    //     // window.location.replace(accountURL());
-    //     this.router.navigateByUrl('');
-    //     break;
-    //   case 'Store':
-    //     // window.location.replace(storeURL());
-    //     this.router.navigateByUrl('');
-    //     break;
-    //   case 'Cancel':
-    //     // window.location.replace(cancelURL());
-    //     this.router.navigateByUrl('/cancel');
-    //     break;
-    //   default:
-    //     return false;
-    // }
   }
 }
